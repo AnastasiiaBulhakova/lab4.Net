@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:lab4"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFFAF1E0">
+        <Label Content="Співробітник" HorizontalAlignment="Left" Margin="21,19,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Список проектів" HorizontalAlignment="Left" Margin="457,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-1.205"/>
+        <TextBlock x:Name="Projects" HorizontalAlignment="Left" Margin="457,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="179" Width="251" Background="White"/>
+        <Label Content="Посада" HorizontalAlignment="Left" Margin="139,57,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Programmer" Content="Програміст" HorizontalAlignment="Left" Margin="39,98,0,0" VerticalAlignment="Top" Checked="Programmer_Checked" GroupName="Position" IsChecked="True" />
+        <RadioButton x:Name="Designer" Content="Дизайнер" HorizontalAlignment="Left" Margin="216,98,0,0" VerticalAlignment="Top" Checked="Designer_Checked" GroupName="Position"/>
+        <Label x:Name="Level" Content="Рівень" HorizontalAlignment="Left" Margin="141,132,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="Junior" Content="Junior" HorizontalAlignment="Left" Margin="39,181,0,0" VerticalAlignment="Top" GroupName="Level" IsChecked="True"/>
+        <RadioButton x:Name="Senior" Content="Senior" HorizontalAlignment="Left" Margin="216,181,0,0" VerticalAlignment="Top" GroupName="Level"/>
+        <Label Content="Стаж" HorizontalAlignment="Left" Margin="39,246,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="Experience" HorizontalAlignment="Left" Margin="104,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0"/>
+        <Label  Content="Зарплата за годину" HorizontalAlignment="Left" Margin="39,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.414,2.351"/>
+        <TextBox x:Name="HourlyRate" HorizontalAlignment="Left" Margin="182,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0"/>
+        <Label  x:Name="Bonus" Content="Бонуси" HorizontalAlignment="Left" Margin="457,57,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Result" Content="" HorizontalAlignment="Left" Margin="567,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="Загальний фонд" HorizontalAlignment="Left" Margin="457,371,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="AllResult" Content="" HorizontalAlignment="Left" Margin="567,371,0,0" VerticalAlignment="Top"/>
+        <Button Content="Розрахувати" HorizontalAlignment="Left" Margin="39,347,0,0" VerticalAlignment="Top" Height="50" Width="263" Background="#FF4B281B" Foreground="#FFFEF9F9" Click="Calculate_Click"/>
+        <Label x:Name="Specialization" Content="Спеціалізація" HorizontalAlignment="Left" Margin="122,137,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <RadioButton x:Name="Graphic" Content="Графічний дизайнер" HorizontalAlignment="Left" Margin="39,181,0,0" VerticalAlignment="Top" GroupName="Specialization" IsChecked="True" Visibility="Hidden"/>
+        <RadioButton x:Name="UX" Content="UX/UI дизайнер" HorizontalAlignment="Left" Margin="252,181,0,0" VerticalAlignment="Top" Visibility="Hidden" GroupName="Specialization"/>
+        <RadioButton x:Name="_3D" Content="3D або Motion дизайнер" HorizontalAlignment="Left" Margin="39,217,0,0" VerticalAlignment="Top" GroupName="Specialization" Visibility="Hidden"/>
+        <Label x:Name="ProjectCost" Content="Вартість проєкту" HorizontalAlignment="Left" Margin="457,57,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Content="Місячна зарплата" HorizontalAlignment="Left" Margin="457,98,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="MonthlySalary" Content="" HorizontalAlignment="Left" Margin="567,98,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
