@@ -1,18 +1,7 @@
 ﻿using lab4.class_lab4;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace lab4
 {
@@ -26,7 +15,6 @@ namespace lab4
             InitializeComponent();
         }
 
-
         private void Programmer_Checked(object sender, RoutedEventArgs e)
         {
             if (!IsLoaded) return;
@@ -34,6 +22,10 @@ namespace lab4
             Junior.Visibility = Visibility.Visible;
             Senior.Visibility = Visibility.Visible;
             Bonus.Visibility = Visibility.Visible;
+            Experience.Visibility = Visibility.Visible;
+            ExperienceL.Visibility = Visibility.Visible;
+            HourlyRateL.Visibility = Visibility.Visible;
+            HourlyRate.Visibility = Visibility.Visible;
 
             Specialization.Visibility = Visibility.Collapsed;
             Graphic.Visibility = Visibility.Collapsed;
@@ -54,9 +46,31 @@ namespace lab4
             UX.Visibility = Visibility.Visible;
             _3D.Visibility = Visibility.Visible;
             ProjectCost.Visibility = Visibility.Visible;
+            Experience.Visibility = Visibility.Visible;
+            ExperienceL.Visibility = Visibility.Visible;
+            HourlyRateL.Visibility = Visibility.Visible;
+            HourlyRate.Visibility = Visibility.Visible;
+        }
+
+        private void Manager_Checked(object sender, RoutedEventArgs e)
+        {
+            Specialization.Visibility = Visibility.Collapsed;
+            Graphic.Visibility = Visibility.Collapsed;
+            UX.Visibility = Visibility.Collapsed;
+            _3D.Visibility = Visibility.Collapsed;
+            ProjectCost.Visibility = Visibility.Collapsed;
+            Level.Visibility = Visibility.Collapsed;
+            Junior.Visibility = Visibility.Collapsed;
+            Senior.Visibility = Visibility.Collapsed;
+            Bonus.Visibility = Visibility.Collapsed;
+            Experience.Visibility = Visibility.Collapsed;
+            ExperienceL.Visibility = Visibility.Collapsed;
+            HourlyRateL.Visibility = Visibility.Collapsed;
+            HourlyRate.Visibility = Visibility.Collapsed;
         }
 
         PayrollManager payrollManager = new PayrollManager();
+
         private void Calculate_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -64,23 +78,22 @@ namespace lab4
                 int experience = int.Parse(Experience.Text);
                 double rate = double.Parse(HourlyRate.Text);
 
-                Employee emp = null;
+                IWorkable worker = null;
 
-                // --- Якщо обрано програміста ---
+                //  Якщо обрано програміста 
                 if (Programmer.IsChecked == true)
                 {
                     int level = Junior.IsChecked == true ? 0 : 1;
-
                     Programmer programmer = new Programmer(experience, rate, level);
-                    emp = programmer;
+                    worker = programmer;
 
                     MonthlySalary.Content = programmer.CalculateMonthlySalary().ToString();
                     Result.Content = programmer.Bonus.ToString();
-
                     Projects.Text = programmer.GetProjects();
+                    Traininng.Content = programmer.ConductTraining();
                 }
 
-                // --- Якщо обрано дизайнера ---
+                //  Якщо обрано дизайнера 
                 else if (Designer.IsChecked == true)
                 {
                     int specialization = 0;
@@ -89,17 +102,28 @@ namespace lab4
                     else if (_3D.IsChecked == true) specialization = 2;
 
                     Designer designer = new Designer(experience, rate, specialization);
-                    emp = designer;
+                    worker = designer;
 
                     MonthlySalary.Content = designer.CalculateMonthlySalary().ToString();
                     Result.Content = designer.CalculateProjectCost(40).ToString();
                     Projects.Text = designer.GetProjects();
                 }
 
-                // --- Додаємо працівника до списку ---
-                if (emp != null)
+                //  Якщо обрано менеджера 
+                else if (Manager.IsChecked == true)
                 {
-                    payrollManager.AddEmployee(emp);
+                    ProjectManager manager = new ProjectManager();
+                    worker = manager;
+
+                    MonthlySalary.Content = manager.CalculateMonthlySalary().ToString();
+                    Traininng.Content = manager.ConductTraining();
+                    Projects.Text = manager.GetProjects();
+                }
+
+                //  Додаємо працівника 
+                if (worker != null)
+                {
+                    payrollManager.AddEmployee(worker);
                     AllResult.Content = payrollManager.CalculateTotalMonthlySalary().ToString();
                 }
             }
@@ -108,6 +132,5 @@ namespace lab4
                 MessageBox.Show($"Помилка: {ex.Message}");
             }
         }
-    
     }
 }

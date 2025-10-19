@@ -8,22 +8,22 @@ namespace lab4.class_lab4
 {
     public class PayrollManager
     {
-        private List<Employee> employees;
+        private List<IWorkable> employees;
 
         public PayrollManager()
         {
-            employees = new List<Employee>();
+            employees = new List<IWorkable>();
         }
 
         // Додати співробітника до списку
-        public void AddEmployee(Employee employee)
+        public void AddEmployee(IWorkable employee)
         {
             if (employee != null)
                 employees.Add(employee);
         }
 
         // Повернути список усіх співробітників
-        public List<Employee> GetAllEmployees()
+        public List<IWorkable> GetAllEmployees()
         {
             return employees;
         }

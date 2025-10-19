@@ -69,8 +69,12 @@
     </Compile>
     <Compile Include="class_lab4\Designer.cs" />
     <Compile Include="class_lab4\Employee.cs" />
+    <Compile Include="class_lab4\IBonusable.cs" />
+    <Compile Include="class_lab4\ITrainable.cs" />
+    <Compile Include="class_lab4\IWorkable.cs" />
     <Compile Include="class_lab4\PayrollManager.cs" />
     <Compile Include="class_lab4\Programmer.cs" />
+    <Compile Include="class_lab4\ProjectManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

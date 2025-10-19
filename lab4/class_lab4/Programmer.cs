@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Media3D;
 
 namespace lab4.class_lab4
 {
-    public class Programmer : Employee
+    public class Programmer : Employee, IWorkable, IBonusable, ITrainable
     {
         public int level; // 0 junior  1 senior
         private double bonus;
@@ -32,12 +33,12 @@ namespace lab4.class_lab4
             if (level == 0) bonus = 0.05 * hourlyRate * 160;
             else bonus = 0.2 * hourlyRate * 160;
         }
-        public override double CalculateMonthlySalary()
+        public double CalculateMonthlySalary()
         {
             CalculateBonus();
             return hourlyRate * 160 + bonus;
         }
-        public override string GetProjects()
+        public string GetProjects()
         {
             if (level == 0)
             {
@@ -50,6 +51,10 @@ namespace lab4.class_lab4
                        "2. Серверна частина API\n" +
                        "3. Мобільний застосунок";
             }
+        }
+        public string ConductTraining()
+        {
+            return $"Програміст проводить тренінг: C# Basics";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab4.class_lab4
 {
-    public class Designer : Employee
+    public class Designer : Employee, IWorkable
     {
          public int specialization; // 0 - Графічний дизайнер, 1 -UX/UI дизайнер, 2 - 3D або Motion дизайнер
          private double projectCost;
@@ -20,11 +20,11 @@ namespace lab4.class_lab4
          {
             return hourlyRate * hours;
          }
-         public override double CalculateMonthlySalary()
+         public double CalculateMonthlySalary()
          {
              return hourlyRate * 160;
          }
-        public override string GetProjects()
+        public string GetProjects()
         {
             string projects = "";
 

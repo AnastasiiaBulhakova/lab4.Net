@@ -20,7 +20,5 @@ namespace lab4.class_lab4
             }
             else throw new Exception("Досвід та оплата не повинні бути від'ємними");
         }
-        public abstract double CalculateMonthlySalary();
-        public abstract string GetProjects();
     }
 }
