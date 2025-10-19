@@ -26,6 +26,8 @@ namespace lab4
             ExperienceL.Visibility = Visibility.Visible;
             HourlyRateL.Visibility = Visibility.Visible;
             HourlyRate.Visibility = Visibility.Visible;
+            Result.Visibility = Visibility.Visible;
+
 
             Specialization.Visibility = Visibility.Collapsed;
             Graphic.Visibility = Visibility.Collapsed;
@@ -50,6 +52,7 @@ namespace lab4
             ExperienceL.Visibility = Visibility.Visible;
             HourlyRateL.Visibility = Visibility.Visible;
             HourlyRate.Visibility = Visibility.Visible;
+            Result.Visibility = Visibility.Visible;
         }
 
         private void Manager_Checked(object sender, RoutedEventArgs e)
@@ -67,6 +70,7 @@ namespace lab4
             ExperienceL.Visibility = Visibility.Collapsed;
             HourlyRateL.Visibility = Visibility.Collapsed;
             HourlyRate.Visibility = Visibility.Collapsed;
+            Result.Visibility = Visibility.Collapsed;
         }
 
         PayrollManager payrollManager = new PayrollManager();
@@ -107,6 +111,7 @@ namespace lab4
                     MonthlySalary.Content = designer.CalculateMonthlySalary().ToString();
                     Result.Content = designer.CalculateProjectCost(40).ToString();
                     Projects.Text = designer.GetProjects();
+                    Traininng.Content ="";
                 }
 
                 //  Якщо обрано менеджера 
